@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "version": "0.0.1",
+  "description": "Bun wrapper for getting, setting, removing and listing extended attributes on files.",
   "devDependencies": {
     "bun-types": "latest"
   },

@@ -1,15 +1,17 @@
 # bun-xattr
 
-To install dependencies:
+Bun wrapper for getting, setting, removing and listing extended attributes on files.
 
-```bash
-bun install
+OS Support: macOS and Linux (I will try to add support for windows via NtSetEaFile/NtQueryEaFile in future)
+
+usage:
+
+```typescript
+import { setxattr, listxattr, getxattr, removexattr } from "bun-xattr";
+
+const file = "./path/to/file";
+setxattr(file, "user.mime", "text/html");
+console.log(listxattr(file));
+console.log(getxattr(file, "user.mime"));
+removexattr(file, "user.mime");
 ```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.0.3. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
