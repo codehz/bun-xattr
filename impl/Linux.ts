@@ -11,11 +11,23 @@ const { symbols: NativeAPI } = dlopen("libc.so.6", {
     returns: FFIType.i64_fast,
   },
   setxattr: {
-    args: [FFIType.cstring, FFIType.cstring, FFIType.pointer, FFIType.u64_fast, FFIType.i32],
+    args: [
+      FFIType.cstring,
+      FFIType.cstring,
+      FFIType.pointer,
+      FFIType.u64_fast,
+      FFIType.i32,
+    ],
     returns: FFIType.i32,
   },
   fsetxattr: {
-    args: [FFIType.i32, FFIType.cstring, FFIType.pointer, FFIType.u64_fast, FFIType.i32],
+    args: [
+      FFIType.i32,
+      FFIType.cstring,
+      FFIType.pointer,
+      FFIType.u64_fast,
+      FFIType.i32,
+    ],
     returns: FFIType.i32,
   },
   listxattr: {
