@@ -2,7 +2,7 @@
   "name": "bun-xattr",
   "module": "index.ts",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Bun wrapper for getting, setting, removing and listing extended attributes on files.",
   "devDependencies": {
     "bun-types": "latest"
