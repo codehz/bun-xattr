@@ -5,7 +5,7 @@
   "version": "0.0.3",
   "description": "Bun wrapper for getting, setting, removing and listing extended attributes on files.",
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

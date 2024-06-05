@@ -77,7 +77,7 @@ export function getxattr(target: string | number, key: string) {
 export function setxattr(
   target: string | number,
   key: string,
-  value: TypedArray | string
+  value: Uint8Array | string
 ) {
   const keyBuffer = cstr(key);
   const valueBuffer = typeof value === "string" ? cstr(value) : value;
