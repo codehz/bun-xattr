@@ -11,11 +11,11 @@ const { symbols: NativeAPI } = dlopen("libc.so.6", {
     returns: FFIType.i64_fast,
   },
   setxattr: {
-    args: [FFIType.cstring, FFIType.cstring, FFIType.pointer, FFIType.u64_fast],
+    args: [FFIType.cstring, FFIType.cstring, FFIType.pointer, FFIType.u64_fast, FFIType.i32],
     returns: FFIType.i32,
   },
   fsetxattr: {
-    args: [FFIType.i32, FFIType.cstring, FFIType.pointer, FFIType.u64_fast],
+    args: [FFIType.i32, FFIType.cstring, FFIType.pointer, FFIType.u64_fast, FFIType.i32],
     returns: FFIType.i32,
   },
   listxattr: {
@@ -71,12 +71,12 @@ export function setxattr(
   const valueBuffer = typeof value === "string" ? cstr(value) : value;
   if (typeof target === "number") {
     checkReturnValue(
-      NativeAPI.fsetxattr(target, keyBuffer, valueBuffer, valueBuffer.length)
+      NativeAPI.fsetxattr(target, keyBuffer, valueBuffer, valueBuffer.length, 0)
     );
   } else {
     const path = cstr(target);
     checkReturnValue(
-      NativeAPI.setxattr(path, keyBuffer, valueBuffer, valueBuffer.length)
+      NativeAPI.setxattr(path, keyBuffer, valueBuffer, valueBuffer.length, 0)
     );
   }
 }
