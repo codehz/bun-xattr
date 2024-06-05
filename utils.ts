@@ -9,8 +9,15 @@ export function cstr(jsstr: string) {
 }
 
 export function checkReturnValue<T extends number | bigint>(ret: T): T {
-  if (typeof ret === "number" && ret < 0) throw new Error("native error");
+  if (typeof ret === "number" && ret < 0) throw new NativeError();
   return ret;
+}
+
+// Unfortunately there's no way to get the errno
+export class NativeError extends Error {
+  constructor() {
+    super("native error");
+  }
 }
 
 export function decodeCStrContinusArray(buffer: Uint8Array) {
